@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import send from '../img/send-message.png'
 
-export function AddNode() {
+export function AddNode({update}) {
   const [newPost, setPost] = useState({
     text: ''
   })
@@ -16,7 +16,7 @@ export function AddNode() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      .then((response) => console.log(response.status))
+      .then((response) => response.status===204 ? update() : alert('Request Error'))
   }
 
   const hundlerOfChange = ({target}) => {

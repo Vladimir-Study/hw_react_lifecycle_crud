@@ -19,8 +19,8 @@ function App() {
   return (
     <>
       <Refresh onLoad={loadNotes}/>
-      <Notes notes={notes}/>
-      <AddNode/>
+      <Notes notes={notes} update={loadNotes}/>
+      <AddNode update={loadNotes}/>
     </>
   )
 }
